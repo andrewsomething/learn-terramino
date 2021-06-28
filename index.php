@@ -48,23 +48,16 @@
   </style>
 </head>
 <?php
-  $url = "http://169.254.169.254/latest/meta-data/instance-id";
-  $instance_id = file_get_contents($url);
-
-  $url = "http://169.254.169.254/latest/meta-data/placement/availability-zone";
-  $zone = file_get_contents($url);
-
-  $url = "http://169.254.169.254/latest/meta-data/ami-id";
-  $ami_id = file_get_contents($url);
+  $message = $site_path_var = $_ENV["MESSAGE"];
+  $hash = $site_path_var = $_ENV["COMMIT_HASH"];
   ?>
 
 <body>
   <div class="container">
     <div class="content">
       <h1>Terramino</h1>
-      <p><span class="attribute-name">AMI ID:</span><code><?php echo $ami_id; ?></code></p>
-      <p><span class="attribute-name">Instance ID:</span><code><?php echo $instance_id; ?></code></p>
-      <p><span class="attribute-name">Availability Zones:</span><code><?php echo $zone; ?></code></p>
+      <p><code><?php echo $message; ?></code></p>
+      <p><span class="attribute-name">Git Hash:</span><code><?php echo $hash; ?></code></p>
       <p>Use left and right arrow keys to move blocks.<br />Use up arrow key to flip block.</p>
     </div>
     <div class="content">
